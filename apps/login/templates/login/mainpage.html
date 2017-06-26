@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>Main Page</title>
+    <meta description='Main Page for LoginReg App'>
+    <meta charset='utf-8'/>
+</head>
+<body>
+    <div id='wrapper'>
+        <h3> welcome {{ request.session.first_name }}... </h3>
+        <p> Here are options you can use with this application </p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="/bikes" method="GET">
+            <button>Bike Reviewer</button>
+        </form>
+        <form action="/" method="GET">
+            <button>Login Page</button>
+        </form>
+        <form action="/logout" method="GET">
+            <button>Logout</button>
+        </form>
+    </div>
+</body>
+</html>

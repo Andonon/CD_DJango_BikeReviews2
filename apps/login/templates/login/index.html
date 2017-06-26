@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Login and Registeration</title>
+        <meta description='Main Page for Login and Registration App'>
+        <meta charset='utf-8'/>
+    </head>
+    <body>
+        <div id='wrapper'>
+            <h3>Register</h3>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form action="/register" id="registerform" method="post">
+                {% csrf_token %}
+                <label for="first_name">First Name:</label>
+                <input type="text" name="first_name" placeholder="Enter first name here..."><br><br>
+                <label for="last_name">Last Name:</label>
+                <input type="text" name="last_name" placeholder="Enter last name here..."><br><br>
+                <label for="email">Email:</label>
+                <input type="text" name="email" placeholder="Enter email here..."><br><br>
+                <label for="userpassword">Password:</label>
+                <input type="password" name="userpassword" placeholder="Enter password here..."><br><br>
+                <label for="cpassword">Confirm Password:</label>
+                <input type="password" name="cpassword" placeholder="Re-enter password here..."><br><br>
+                <input type="submit" name="registerbutton" value="Register">
+            </form> 
+            <h3>Login</h3>
+            <form action="/login" id="loginform" method="post">
+                {% csrf_token %}
+                <label for="email">Email:</label>
+                <input type="text" name="email" placeholder="Enter email here..."><br><br>
+                <label for="userpassword">Password:</label>
+                <input type="password" name="userpassword" placeholder="Enter password here..."><br><br>
+                <input type="submit" name="registerbutton" value="Login">
+            </form> 
+            <h3>Already Logged In?:</h3>
+            <form action="/mainpage">
+                <button>Go to Main Page</button>
+            </form>         
+        </div>
+    </body>
+</html>
